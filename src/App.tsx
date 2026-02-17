@@ -17,8 +17,8 @@ export default function App() {
           <Link to="/">Home</Link> | <Link to="/guests">Guests</Link>
         </div>
         <Routes>
-          <Route path="/" element={<Home guests={guests} setGuests={setGuests} />} />
-          <Route path="/guests" element={<GuestList guests={guests} />} />
+          <Route path="/" element={<Home  />} />
+          <Route path="/guests" element={<GuestList />} />
         </Routes>
       </GlobalContext>
     </BrowserRouter>

@@ -1,20 +1,21 @@
+import { useGlobalContext } from "./globalContext"
+
 interface SettingProps {
-  guests: string[]
   name: string
-  setGuests: (guests: string[]) => void
 }
 
-export default function Setting({ guests, name, setGuests }: SettingProps) {
-  const invited = guests.includes(name)
+export default function Setting({ name }: SettingProps) {
+  const value = useGlobalContext()
+  const invited = value.guests.includes(name)
   return (
     <button
       onClick={() => {
         if (invited) {
-          const newGuests = guests.filter(guest => guest !== name)
-          setGuests(newGuests)
+          const newGuests = value.guests.filter(guest => guest !== name)
+          value.setGuests(newGuests)
         } else {
-          const newGuests = [...guests, name]
-          setGuests(newGuests)
+          const newGuests = [...value.guests, name]
+          value.setGuests(newGuests)
         }
       }}
     >

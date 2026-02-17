@@ -1,11 +1,11 @@
-interface GuestListProps {
-  guests: string[]
-}
+import { useGlobalContext } from "./globalContext"
 
-export default function GuestList({ guests }: GuestListProps) {
+
+export default function GuestList() {
+  const value = useGlobalContext()
   return (
     <ul>
-      {guests.map((guest) => {
+      {value.guests.map((guest) => {
         return <li key={guest}>{guest}</li>
       })}
     </ul>
